@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sesión con botón</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2f2f2;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
 
+  <button onclick="mostrarAlerta()">Haz clic aquí</button>
+
+  <script>
+    function mostrarAlerta() {
+      alert("¡Hola! Esta es tu sesión funcionando correctamente 🚀");
+    }
+  </script>
+
+</body>
+</html>
