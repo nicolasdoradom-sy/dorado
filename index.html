@@ -1,51 +1,1178 @@
 <!DOCTYPE html>
 <html lang="es">
-    
 <head>
-    <!-- Google Tag Manager -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-55WD82VK');</script>
 <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <title>Sesión con botón</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f2f2f2;
-    }
-    button {
-      padding: 15px 25px;
-      font-size: 18px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Karol Prestige – Scent of Luxury</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dark: #8B6914;
+    --teal: #0D3B33;
+    --teal-mid: #1A5246;
+    --teal-light: #E8F5F1;
+    --white: #FDFAF5;
+    --off-white: #F5F0E8;
+    --dark: #0A0A0A;
+    --gray: #6B6B6B;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 72px;
+    background: rgba(13, 59, 51, 0.97);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo img { height: 40px; width: 40px; object-fit: contain; }
+  .nav-brand {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--teal);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--teal);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 5%;
+    padding-top: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-bg-text {
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: clamp(120px, 18vw, 260px);
+    font-weight: 300;
+    color: rgba(201,168,76,0.04);
+    letter-spacing: -0.02em;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 6vw, 80px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    max-width: 440px;
+    margin-bottom: 44px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--teal);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.3);
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+  .hero-image {
+    display: flex; justify-content: flex-end; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .hero-img-wrapper {
+    position: relative;
+    width: 420px; height: 520px;
+  }
+  .hero-img-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 20px; left: 20px; right: -20px; bottom: -20px;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 2px;
+  }
+  .hero-img-wrapper img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+  .hero-img-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, var(--teal-mid) 0%, #0A2922 100%);
+    border-radius: 2px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px;
+  }
+  .hero-img-placeholder .kp-logo-big {
+    font-family: var(--font-display);
+    font-size: 96px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .hero-img-placeholder span {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.6);
+  }
+  .hero-stats {
+    margin-top: 60px;
+    display: flex; gap: 48px;
+  }
+  .stat-item { }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 100px 5%; }
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--gold-dark); }
+  .section-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--gray);
+    max-width: 560px;
+    margin-bottom: 56px;
+  }
+
+  /* ── BENEFITS ── */
+  .benefits { background: var(--white); }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.06);
+    margin-top: 64px;
+  }
+  .benefit-card {
+    background: var(--white);
+    padding: 48px 40px;
+    transition: background 0.3s;
+  }
+  .benefit-card:hover { background: var(--off-white); }
+  .benefit-icon {
+    width: 48px; height: 48px;
+    margin-bottom: 24px;
+    color: var(--gold-dark);
+  }
+  .benefit-icon svg { width: 100%; height: 100%; }
+  .benefit-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .benefit-desc {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--gray);
+  }
+
+  /* ── FEATURES (alternating) ── */
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px 5%;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .feature-row:nth-child(even) .feature-text { order: 2; }
+  .feature-row:nth-child(even) .feature-visual { order: 1; }
+  .feature-row.dark-bg { background: var(--teal); }
+  .feature-row.dark-bg .section-eyebrow { color: var(--gold-light); }
+  .feature-row.dark-bg .section-title { color: var(--white); }
+  .feature-row.dark-bg .section-title em { color: var(--gold-light); }
+  .feature-row.dark-bg .section-subtitle { color: rgba(255,255,255,0.6); }
+  .feature-row.off-bg { background: var(--off-white); }
+  .feature-visual-box {
+    height: 380px;
+    background: var(--teal-light);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-row.dark-bg .feature-visual-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+  .feature-visual-inner {
+    font-family: var(--font-display);
+    font-size: 80px;
+    color: var(--gold);
+    opacity: 0.25;
+    font-style: italic;
+  }
+  .feature-label {
+    position: absolute; bottom: 24px; left: 24px;
+    background: var(--gold);
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 1px;
+  }
+
+  /* ── CTA TRIGGER ── */
+  .cta-strip {
+    background: var(--gold);
+    padding: 64px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .cta-strip-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1.1;
+    max-width: 600px;
+  }
+  .cta-strip-title strong { font-weight: 600; }
+  .btn-dark {
+    background: var(--teal);
+    color: var(--gold-light);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    border-radius: 2px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .btn-dark:hover { background: var(--teal-mid); }
+
+  /* ── PRODUCTO EXPLAINER ── */
+  .product-section { background: var(--dark); }
+  .product-section .section-title { color: var(--white); }
+  .product-section .section-eyebrow { color: var(--gold); }
+  .product-section .section-subtitle { color: rgba(255,255,255,0.55); }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.04);
+    margin-top: 56px;
+  }
+  .product-card {
+    background: #111;
+    padding: 48px 40px;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  .product-card:hover { background: #181818; }
+  .product-card-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.2);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .product-card-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .product-card-desc {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── TESTIMONIOS ── */
+  .testimonials { background: var(--off-white); }
+  .testimonials .section-title { color: var(--dark); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .testi-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 36px 32px;
+    border-radius: 2px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .testi-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .testi-quote {
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: var(--gold);
+    line-height: 0.6;
+    margin-bottom: 20px;
+  }
+  .testi-text {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--dark);
+    margin-bottom: 24px;
+  }
+  .testi-author {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: 500;
+  }
+  .testi-location {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+
+  /* ── FAQ ── */
+  .faq { background: var(--white); }
+  .faq .section-title { color: var(--dark); max-width: 600px; }
+  .faq-list { margin-top: 56px; max-width: 760px; }
+  .faq-item {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .faq-question {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 0;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--dark);
+    gap: 20px;
+    user-select: none;
+  }
+  .faq-question:hover { color: var(--gold-dark); }
+  .faq-icon {
+    width: 24px; height: 24px; flex-shrink: 0;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    color: var(--gold-dark);
+    transition: transform 0.3s, background 0.2s;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gold); color: var(--teal); border-color: var(--gold); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--gray);
+    transition: max-height 0.4s ease, padding 0.3s;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 24px; }
+
+  /* ── PRE-FOOTER CTA ── */
+  .pre-footer {
+    background: var(--teal);
+    padding: 120px 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .pre-footer::before {
+    content: 'KP';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: 400px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.04);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+  .pre-footer-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .pre-footer-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .pre-footer-title em { font-style: italic; color: var(--gold-light); }
+  .pre-footer-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 48px;
+    max-width: 480px;
+    margin-left: auto; margin-right: auto;
+    line-height: 1.7;
+  }
+  .pre-footer-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080808;
+    padding: 64px 5% 40px;
+    color: rgba(255,255,255,0.45);
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-brand-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+    margin-top: 12px;
+  }
+  .footer-brand-tagline {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.5);
+    margin-bottom: 20px;
+  }
+  .footer-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.35);
+    max-width: 280px;
+  }
+  .footer-col-title {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 32px;
+    font-size: 12px;
+  }
+  .social-links { display: flex; gap: 16px; }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 14px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  /* ── FORM HubSpot placeholder ── */
+  .form-section { background: var(--off-white); }
+  .form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .form-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 2px;
+    padding: 48px 40px;
+  }
+  .form-card h3 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .form-card p {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--dark);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--gold-dark);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%;
+    background: var(--teal);
+    color: var(--gold-light);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 16px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--teal-mid); }
+  .hs-note {
+    font-size: 12px;
+    color: var(--gray);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  /* ── ANIMATION ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 100px; padding-bottom: 60px; }
+    .hero-image { display: none; }
+    .hero-stats { gap: 32px; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .feature-row { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; }
+    .feature-row:nth-child(even) .feature-text { order: unset; }
+    .feature-row:nth-child(even) .feature-visual { order: unset; }
+    .product-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .form-wrapper { grid-template-columns: 1fr; }
+    .cta-strip { flex-direction: column; text-align: center; }
+    nav .nav-links { display: none; }
+  }
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55WD82VK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <button onclick="mostrarAlerta()">Haz clic aquí</button>
 
-  <script>
-    function mostrarAlerta() {
-      alert("¡Hola! Esta es tu sesión funcionando correctamente 🚀");
-    }
-  </script>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo-icono.png" alt="KP" onerror="this.style.display='none'"/>
+    <span class="nav-brand">Karol Prestige</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#beneficios">Beneficios</a></li>
+    <li><a href="#productos">Colección</a></li>
+    <li><a href="#testimonios">Clientes</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Descubrir</a>
+</nav>
 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">PRESTIGE</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Scent of Luxury · Bogotá, Colombia</p>
+    <h1 class="hero-title">
+      Vive la fragancia<br/>
+      que <em>define</em><br/>
+      tu historia
+    </h1>
+    <p class="hero-subtitle">
+      Perfumes de lujo que capturan la esencia de quien eres. Cada nota, un capítulo. Cada aroma, una huella que permanece.
+    </p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">Explorar colección</a>
+      <a href="#productos" class="btn-outline">Ver fragancias</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Fragancias exclusivas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Países de origen</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Garantía auténtica</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-img-wrapper">
+      <div class="hero-img-placeholder">
+        <div class="kp-logo-big">K</div>
+        <span>Karol Prestige</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="beneficios">
+  <p class="section-eyebrow fade-up">Por qué elegirnos</p>
+  <h2 class="section-title fade-up">Todo lo que <em>mereces</em><br/>en una sola experiencia</h2>
+  <p class="section-subtitle fade-up">En Karol Prestige, cada detalle está pensado para que vivas el lujo sin complicaciones.</p>
+  <div class="benefits-grid">
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4C13 4 4 13 4 24s9 20 20 20 20-9 20-20S35 4 24 4z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M16 24l6 6 10-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3 class="benefit-title">Autenticidad garantizada</h3>
+      <p class="benefit-desc">Cada fragancia es 100% original, importada directamente de las casas perfumeras más reconocidas del mundo. Sin intermediarios, sin compromisos.</p>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M14 24h20M14 30h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="34" cy="18" r="4" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <h3 class="benefit-title">Asesoría personalizada</h3>
+      <p class="benefit-desc">Nuestros expertos te guían para encontrar la fragancia perfecta según tu personalidad, ocasión y estilo de vida. Un perfume, tu firma.</p>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 6l4.5 9 10 1.5-7.2 7 1.7 10L24 29l-9 4.5 1.7-10L9.5 16.5l10-1.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3 class="benefit-title">Experiencia premium</h3>
+      <p class="benefit-desc">Desde el empaque hasta la entrega, cada paso refleja el nivel de lujo que mereces. Presentación de regalo incluida en todos los pedidos.</p>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 20c0-8.8 7.2-16 16-16s16 7.2 16 16c0 10-16 24-16 24S8 30 8 20z" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="24" cy="20" r="5" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <h3 class="benefit-title">Entrega a domicilio</h3>
+      <p class="benefit-desc">Recibe tus fragancias en la comodidad de tu hogar. Envíos seguros y discretos a todo Colombia, con seguimiento en tiempo real.</p>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 36V18l18-12 18 12v18" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <rect x="17" y="26" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <h3 class="benefit-title">Muestras exclusivas</h3>
+      <p class="benefit-desc">¿No estás seguro? Solicita muestras antes de invertir. Prueba la fragancia en tu piel y decide con confianza absoluta.</p>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 8v4M24 36v4M8 24H4M44 24h-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M24 18v6l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3 class="benefit-title">Soporte 24/7</h3>
+      <p class="benefit-desc">Nuestro equipo está siempre disponible para resolver tus dudas, guiarte en tu elección y asegurarse de que tu experiencia sea perfecta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP 1 -->
+<div class="cta-strip">
+  <h2 class="cta-strip-title">
+    Tú decides qué fragancia<br/>
+    <strong>cuenta tu historia hoy.</strong>
+  </h2>
+  <a href="#contacto" class="btn-dark">Solicitar asesoría gratis</a>
+</div>
+
+<!-- FEATURE 1 -->
+<div class="feature-row" id="productos">
+  <div class="feature-text fade-up">
+    <p class="section-eyebrow">Curación experta</p>
+    <h2 class="section-title">Fragancias que <em>enamoran</em> al primer instante</h2>
+    <p class="section-subtitle">Cada fragancia en nuestra colección fue elegida por nuestros expertos entre cientos de candidatas. Solo las mejores llegan a ti.</p>
+    <a href="#contacto" class="btn-primary">Ver colección completa</a>
+  </div>
+  <div class="feature-visual">
+    <div class="feature-visual-box">
+      <div class="feature-visual-inner">KP</div>
+      <span class="feature-label">Colección 2025</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE 2 dark -->
+<div class="feature-row dark-bg">
+  <div class="feature-visual">
+    <div class="feature-visual-box">
+      <div class="feature-visual-inner" style="color:rgba(201,168,76,0.4)">✦</div>
+      <span class="feature-label">Exclusivo</span>
+    </div>
+  </div>
+  <div class="feature-text fade-up">
+    <p class="section-eyebrow">Tu fragancia, tu identidad</p>
+    <h2 class="section-title" style="color:#FDFAF5;">Personaliza tu <em>experiencia</em> olfativa</h2>
+    <p class="section-subtitle">Desde Oud hasta florales, amaderados o cítricos — cuéntanos tu estilo y te encontramos la fragancia que habla por ti.</p>
+    <a href="#contacto" class="btn-primary">Comenzar mi perfil</a>
+  </div>
+</div>
+
+<!-- FEATURE 3 off-white -->
+<div class="feature-row off-bg">
+  <div class="feature-text fade-up">
+    <p class="section-eyebrow">Regalo perfecto</p>
+    <h2 class="section-title">El lujo que <em>se recuerda</em> siempre</h2>
+    <p class="section-subtitle">Un perfume de Karol Prestige no es solo un regalo, es una experiencia sensorial que deja huella. Packaging de lujo, mensaje personalizado.</p>
+    <a href="#contacto" class="btn-primary">Regalar ahora</a>
+  </div>
+  <div class="feature-visual">
+    <div class="feature-visual-box" style="background:#EDE8E0;">
+      <div class="feature-visual-inner" style="color:rgba(139,105,20,0.2);">Gift</div>
+      <span class="feature-label">Edición regalo</span>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT SECTION -->
+<section class="product-section">
+  <p class="section-eyebrow fade-up">Nuestras categorías</p>
+  <h2 class="section-title fade-up" style="color:#FDFAF5;">Encuentra tu <em>universo</em> olfativo</h2>
+  <p class="section-subtitle fade-up">Cuatro mundos de fragancia, miles de combinaciones posibles.</p>
+  <div class="product-grid">
+    <div class="product-card fade-up">
+      <div class="product-card-num">01</div>
+      <h3 class="product-card-title">Fragancias Orientales</h3>
+      <p class="product-card-desc">Notas de oud, ámbar, sándalo y especias exóticas. Para quienes buscan dejar una impresión duradera e inconfundible.</p>
+    </div>
+    <div class="product-card fade-up">
+      <div class="product-card-num">02</div>
+      <h3 class="product-card-title">Florales & Femeninos</h3>
+      <p class="product-card-desc">Rosa, jazmín, peonía y gardenia. Elegancia suave que acompaña desde el amanecer hasta la medianoche.</p>
+    </div>
+    <div class="product-card fade-up">
+      <div class="product-card-num">03</div>
+      <h3 class="product-card-title">Amaderados & Masculinos</h3>
+      <p class="product-card-desc">Cedro, vetiver, musgo y pachulí. Sofisticación que habla sin palabras, poder que se siente en cada habitación.</p>
+    </div>
+    <div class="product-card fade-up">
+      <div class="product-card-num">04</div>
+      <h3 class="product-card-title">Frescos & Acuáticos</h3>
+      <p class="product-card-desc">Bergamota, limón, menta marina y notas verdes. Ligereza y vitalidad para el día a día con un toque de distinción.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials" id="testimonios">
+  <p class="section-eyebrow fade-up">Lo que dicen nuestros clientes</p>
+  <h2 class="section-title fade-up">¿Todavía con dudas?<br/><em>Escúchalos a ellos.</em></h2>
+  <div class="testimonials-grid">
+    <div class="testi-card fade-up">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Desde que descubrí Karol Prestige, no compro en ningún otro lugar. La calidad es impresionante y el servicio, de otra categoría.</p>
+      <p class="testi-author">@María Fernanda</p>
+      <p class="testi-location">Bogotá, Colombia</p>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Me asesoraron perfectamente para encontrar mi fragancia ideal. Ahora todo el mundo me pregunta qué perfume uso. ¡Cero arrepentimientos!</p>
+      <p class="testi-author">@Carlos Andrés</p>
+      <p class="testi-location">Medellín, Colombia</p>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">El empaque llegó perfecto, como si fuera para la realeza. Regalé un perfume y fue el detalle más elegante que he dado en mi vida.</p>
+      <p class="testi-author">@Valentina G.</p>
+      <p class="testi-location">Cali, Colombia</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP 2 -->
+<div class="cta-strip">
+  <h2 class="cta-strip-title">
+    Sin asteriscos ni letra pequeña.<br/>
+    <strong>Lujo transparente, siempre.</strong>
+  </h2>
+  <a href="#faq" class="btn-dark">Ver preguntas frecuentes</a>
+</div>
+
+<!-- FORMULARIO (HubSpot) -->
+<section class="form-section" id="contacto">
+  <div class="form-wrapper">
+    <div class="fade-up">
+      <p class="section-eyebrow">Contáctanos</p>
+      <h2 class="section-title">¿Lista para encontrar<br/><em>tu fragancia?</em></h2>
+      <p class="section-subtitle">Completa el formulario y uno de nuestros asesores te contactará en menos de 24 horas para guiarte en tu experiencia de lujo.</p>
+      <p style="font-size:13px;color:var(--gray);line-height:1.7;">
+        Tu información está protegida y nunca será compartida con terceros. Este formulario está integrado con HubSpot para darte el mejor seguimiento.
+      </p>
+    </div>
+    <div class="form-card fade-up">
+      <h3>Solicitar asesoría</h3>
+      <p>Cuéntanos sobre ti y tu fragancia ideal.</p>
+      <!-- HubSpot form embed point: replace this form with your HubSpot embed code -->
+      <!-- <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+      <script>
+        hbspt.forms.create({ region: "na1", portalId: "TU_PORTAL_ID", formId: "TU_FORM_ID" });
+      </script> -->
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" placeholder="Tu nombre"/>
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" placeholder="tu@correo.com"/>
+      </div>
+      <div class="form-group">
+        <label>WhatsApp / Teléfono</label>
+        <input type="tel" placeholder="+57 300 000 0000"/>
+      </div>
+      <div class="form-group">
+        <label>¿Qué tipo de fragancia te interesa?</label>
+        <select>
+          <option value="">Seleccionar...</option>
+          <option>Orientales / Oud</option>
+          <option>Florales & Femeninos</option>
+          <option>Amaderados & Masculinos</option>
+          <option>Frescos & Acuáticos</option>
+          <option>No sé, necesito orientación</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mensaje (opcional)</label>
+        <textarea placeholder="Cuéntanos para qué ocasión, presupuesto o preferencias..."></textarea>
+      </div>
+      <button class="form-submit" type="button">Enviar solicitud →</button>
+      <p class="hs-note">Al enviar, aceptas que un asesor de Karol Prestige te contacte. Sin spam.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <p class="section-eyebrow fade-up">FAQ</p>
+  <h2 class="section-title fade-up">¿Tienes más<br/><em>preguntas?</em></h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question">
+        ¿Todos los perfumes son 100% originales?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Sí, absolutamente. En Karol Prestige solo comercializamos fragancias 100% auténticas, adquiridas directamente de distribuidores autorizados y casas perfumeras reconocidas mundialmente. Cada producto incluye certificado de autenticidad.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        ¿Cómo funciona la asesoría personalizada?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Completa el formulario o escríbenos por WhatsApp. Un asesor experto te hará preguntas sobre tu estilo, personalidad y preferencias olfativas para recomendarte las fragancias que mejor te representen. El servicio es completamente gratuito.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        ¿Puedo pedir muestras antes de comprar?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Contamos con servicio de decants y muestras para que puedas probar la fragancia antes de invertir en el frasco completo. Consúltanos disponibilidad en tu solicitud.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        ¿Realizan envíos a toda Colombia?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Sí, enviamos a todo el territorio colombiano con empresas de mensajería de confianza. El tiempo de entrega varía entre 1 y 4 días hábiles dependiendo de tu ciudad.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        ¿Cómo está integrado con HubSpot?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Cuando completas el formulario de contacto, tus datos se registran automáticamente en nuestra plataforma HubSpot, lo que permite a nuestro equipo darte seguimiento personalizado, recordatorios y recomendaciones basadas en tus preferencias.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        ¿Tienen política de devoluciones?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Aceptamos cambios y devoluciones dentro de los primeros 7 días calendario si el producto llega en condiciones diferentes a las prometidas. Escríbenos directamente y buscamos la mejor solución para ti.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRE-FOOTER -->
+<section class="pre-footer">
+  <p class="pre-footer-eyebrow">El lujo te espera</p>
+  <h2 class="pre-footer-title">¿Listo para vivir el<br/><em>Scent of Luxury?</em></h2>
+  <p class="pre-footer-sub">Únete a los clientes que ya encontraron su fragancia perfecta. Tu experiencia comienza con un solo clic.</p>
+  <div class="pre-footer-actions">
+    <a href="#contacto" class="btn-primary">Solicitar asesoría gratis</a>
+    <a href="#productos" class="btn-outline">Explorar colección</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="logo-icono.png" alt="KP" style="height:40px;opacity:0.6;" onerror="this.style.display='none'"/>
+      <div class="footer-brand-name">Karol Prestige</div>
+      <div class="footer-brand-tagline">Scent of Luxury</div>
+      <p class="footer-desc">Fragancias de lujo auténticas para quienes valoran la distinción. Bogotá, Colombia.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Colección</p>
+      <ul class="footer-links">
+        <li><a href="#">Orientales</a></li>
+        <li><a href="#">Florales</a></li>
+        <li><a href="#">Amaderados</a></li>
+        <li><a href="#">Frescos</a></li>
+        <li><a href="#">Edición regalo</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Nosotros</p>
+      <ul class="footer-links">
+        <li><a href="#">Nuestra historia</a></li>
+        <li><a href="#">Autenticidad</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Prensa</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Contacto</p>
+      <ul class="footer-links">
+        <li><a href="mailto:hola@karolprestige.com">hola@karolprestige.com</a></li>
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Karol Prestige. Todos los derechos reservados.</span>
+    <div class="social-links">
+      <a href="#" class="social-link">ig</a>
+      <a href="#" class="social-link">fb</a>
+      <a href="#" class="social-link">wa</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Scroll fade-up
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
