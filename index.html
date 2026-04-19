@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
 <!-- Google Tag Manager -->
@@ -8,6 +8,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-55WD82VK');</script>
 <!-- End Google Tag Manager -->
+
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-74HBKCJW61"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-74HBKCJW61');
+</script>
+<!-- End GA4 -->
+
 <script src="https://t.contentsquare.net/uxa/724ff8e804cee.js"></script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -222,7 +233,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-top: 60px;
     display: flex; gap: 48px;
   }
-  .stat-item { }
   .stat-num {
     font-family: var(--font-display);
     font-size: 36px;
@@ -302,7 +312,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: var(--gray);
   }
 
-  /* ── FEATURES (alternating) ── */
+  /* ── FEATURES ── */
   .feature-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -328,17 +338,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0,0,0,0.15);
   }
-  .feature-row.dark-bg .feature-visual-box {
-    background: transparent;
-    border: none;
-  }
-  .feature-visual-inner {
-    font-family: var(--font-display);
-    font-size: 80px;
-    color: var(--gold);
-    opacity: 0.25;
-    font-style: italic;
-  }
   .feature-label {
     position: absolute; bottom: 24px; left: 24px;
     background: var(--gold);
@@ -351,7 +350,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-radius: 1px;
   }
 
-  /* ── CTA TRIGGER ── */
+  /* ── CTA STRIP ── */
   .cta-strip {
     background: var(--gold);
     padding: 64px 5%;
@@ -384,7 +383,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .btn-dark:hover { background: var(--teal-mid); }
 
-  /* ── PRODUCTO EXPLAINER ── */
+  /* ── PRODUCT SECTION ── */
   .product-section { background: var(--dark); }
   .product-section .section-title { color: var(--white); }
   .product-section .section-eyebrow { color: var(--gold); }
@@ -427,7 +426,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ── TESTIMONIOS ── */
   .testimonials { background: var(--off-white); }
-  .testimonials .section-title { color: var(--dark); }
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -473,11 +471,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ── FAQ ── */
   .faq { background: var(--white); }
-  .faq .section-title { color: var(--dark); max-width: 600px; }
   .faq-list { margin-top: 56px; max-width: 760px; }
-  .faq-item {
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-  }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
   .faq-question {
     display: flex; align-items: center; justify-content: space-between;
     padding: 24px 0;
@@ -509,7 +504,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 24px; }
 
-  /* ── PRE-FOOTER CTA ── */
+  /* ── PRE-FOOTER ── */
   .pre-footer {
     background: var(--teal);
     padding: 120px 5%;
@@ -626,7 +621,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .social-link:hover { border-color: var(--gold); color: var(--gold-light); }
 
-  /* ── FORM HubSpot placeholder ── */
+  /* ── FORM SECTION ── */
   .form-section { background: var(--off-white); }
   .form-wrapper {
     display: grid;
@@ -653,55 +648,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     margin-bottom: 32px;
     line-height: 1.6;
   }
-  .form-group { margin-bottom: 20px; }
-  .form-group label {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gray);
-    margin-bottom: 8px;
-    font-weight: 500;
-  }
-  .form-group input, .form-group select, .form-group textarea {
+
+  /* HubSpot form overrides */
+  .form-card .hs-form-frame {
     width: 100%;
-    padding: 14px 16px;
-    border: 1px solid rgba(0,0,0,0.12);
-    border-radius: 2px;
-    font-family: var(--font-body);
-    font-size: 15px;
-    color: var(--dark);
-    background: var(--white);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: var(--gold-dark);
-  }
-  .form-group textarea { resize: vertical; min-height: 100px; }
-  .form-submit {
-    width: 100%;
-    background: var(--teal);
-    color: var(--gold-light);
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 16px;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background 0.2s;
-    margin-top: 8px;
-  }
-  .form-submit:hover { background: var(--teal-mid); }
-  .hs-note {
-    font-size: 12px;
-    color: var(--gray);
-    text-align: center;
-    margin-top: 16px;
-    line-height: 1.5;
   }
 
   /* ── ANIMATION ── */
@@ -751,7 +701,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#testimonios">Clientes</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a href="#contacto" class="nav-cta">Descubrir</a>
+  <a href="#contacto" class="nav-cta" id="btn-nav-cta">Descubrir</a>
 </nav>
 
 <!-- HERO -->
@@ -768,7 +718,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       Perfumes de lujo que capturan la esencia de quien eres. Cada nota, un capítulo. Cada aroma, una huella que permanece.
     </p>
     <div class="hero-actions">
-      <a href="#contacto" class="btn-primary">Explorar colección</a>
+      <a href="#contacto" class="btn-primary cta-button" id="btn-hero-cta">Explorar colección</a>
       <a href="#productos" class="btn-outline">Ver fragancias</a>
     </div>
     <div class="hero-stats">
@@ -872,7 +822,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     Tú decides qué fragancia<br/>
     <strong>cuenta tu historia hoy.</strong>
   </h2>
-  <a href="#contacto" class="btn-dark">Solicitar asesoría gratis</a>
+  <a href="#contacto" class="btn-dark cta-button">Solicitar asesoría gratis</a>
 </div>
 
 <!-- FEATURE 1 -->
@@ -881,7 +831,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-eyebrow">Curación experta</p>
     <h2 class="section-title">Fragancias que <em>enamoran</em> al primer instante</h2>
     <p class="section-subtitle">Cada fragancia en nuestra colección fue elegida por nuestros expertos entre cientos de candidatas. Solo las mejores llegan a ti.</p>
-    <a href="#contacto" class="btn-primary">Ver colección completa</a>
+    <a href="#contacto" class="btn-primary cta-button">Ver colección completa</a>
   </div>
   <div class="feature-visual">
     <div class="feature-visual-box" style="padding:0; overflow:hidden; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,0.15); height:500px;">
@@ -903,7 +853,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-eyebrow">Tu fragancia, tu identidad</p>
     <h2 class="section-title" style="color:#FDFAF5;">Personaliza tu <em>experiencia</em> olfativa</h2>
     <p class="section-subtitle">Desde Oud hasta florales, amaderados o cítricos — cuéntanos tu estilo y te encontramos la fragancia que habla por ti.</p>
-    <a href="#contacto" class="btn-primary">Comenzar mi perfil</a>
+    <a href="#contacto" class="btn-primary cta-button">Comenzar mi perfil</a>
   </div>
 </div>
 
@@ -913,7 +863,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-eyebrow">Regalo perfecto</p>
     <h2 class="section-title">El lujo que <em>se recuerda</em> siempre</h2>
     <p class="section-subtitle">Un perfume de Karol Prestige no es solo un regalo, es una experiencia sensorial que deja huella. Packaging de lujo, mensaje personalizado.</p>
-    <a href="#contacto" class="btn-primary">Regalar ahora</a>
+    <a href="#contacto" class="btn-primary cta-button">Regalar ahora</a>
   </div>
   <div class="feature-visual">
     <div class="feature-visual-box" style="padding:0; overflow:hidden; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,0.15); height:500px;">
@@ -987,7 +937,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#faq" class="btn-dark">Ver preguntas frecuentes</a>
 </div>
 
-<!-- FORMULARIO (HubSpot) -->
+<!-- FORMULARIO HUBSPOT -->
 <section class="form-section" id="contacto">
   <div class="form-wrapper">
     <div class="fade-up">
@@ -995,46 +945,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="section-title">¿Lista para encontrar<br/><em>tu fragancia?</em></h2>
       <p class="section-subtitle">Completa el formulario y uno de nuestros asesores te contactará en menos de 24 horas para guiarte en tu experiencia de lujo.</p>
       <p style="font-size:13px;color:var(--gray);line-height:1.7;">
-        Tu información está protegida y nunca será compartida con terceros. Este formulario está integrado con HubSpot para darte el mejor seguimiento.
+        Tu información está protegida y nunca será compartida con terceros. Este formulario está integrado con HubSpot CRM.
       </p>
     </div>
     <div class="form-card fade-up">
       <h3>Solicitar asesoría</h3>
       <p>Cuéntanos sobre ti y tu fragancia ideal.</p>
-      <!-- HubSpot form embed point: replace this form with your HubSpot embed code -->
-      <!-- <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-      <script>
-        hbspt.forms.create({ region: "na1", portalId: "TU_PORTAL_ID", formId: "TU_FORM_ID" });
-      </script> -->
-      <div class="form-group">
-        <label>Nombre completo</label>
-        <input type="text" placeholder="Tu nombre"/>
-      </div>
-      <div class="form-group">
-        <label>Correo electrónico</label>
-        <input type="email" placeholder="tu@correo.com"/>
-      </div>
-      <div class="form-group">
-        <label>WhatsApp / Teléfono</label>
-        <input type="tel" placeholder="+57 300 000 0000"/>
-      </div>
-      <div class="form-group">
-        <label>¿Qué tipo de fragancia te interesa?</label>
-        <select>
-          <option value="">Seleccionar...</option>
-          <option>Orientales / Oud</option>
-          <option>Florales & Femeninos</option>
-          <option>Amaderados & Masculinos</option>
-          <option>Frescos & Acuáticos</option>
-          <option>No sé, necesito orientación</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Mensaje (opcional)</label>
-        <textarea placeholder="Cuéntanos para qué ocasión, presupuesto o preferencias..."></textarea>
-      </div>
-      <button class="form-submit" type="button">Enviar solicitud →</button>
-      <p class="hs-note">Al enviar, aceptas que un asesor de Karol Prestige te contacte. Sin spam.</p>
+      <!-- HubSpot Form Embed -->
+      <script src="https://js.hsforms.net/forms/embed/51363218.js" defer></script>
+      <div class="hs-form-frame"
+           data-region="na1"
+           data-form-id="43e2f06b-01c5-48be-aee6-8f40bc6c2c1f"
+           data-portal-id="51363218"></div>
     </div>
   </div>
 </section>
@@ -1107,7 +1029,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h2 class="pre-footer-title">¿Listo para vivir el<br/><em>Scent of Luxury?</em></h2>
   <p class="pre-footer-sub">Únete a los clientes que ya encontraron su fragancia perfecta. Tu experiencia comienza con un solo clic.</p>
   <div class="pre-footer-actions">
-    <a href="#contacto" class="btn-primary">Solicitar asesoría gratis</a>
+    <a href="#contacto" class="btn-primary cta-button">Solicitar asesoría gratis</a>
     <a href="#productos" class="btn-outline">Explorar colección</a>
   </div>
 </section>
@@ -1144,7 +1066,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="footer-col-title">Contacto</p>
       <ul class="footer-links">
         <li><a href="mailto:info@karolprestige.com">info@karolprestige.com</a></li>
-        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#" id="link-whatsapp">WhatsApp</a></li>
         <li><a href="#">Instagram</a></li>
         <li><a href="#">Política de privacidad</a></li>
       </ul>
@@ -1155,7 +1077,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="social-links">
       <a href="#" class="social-link">ig</a>
       <a href="#" class="social-link">fb</a>
-      <a href="#" class="social-link">wa</a>
+      <a href="#" id="social-whatsapp" class="social-link">wa</a>
     </div>
   </div>
 </footer>
@@ -1171,7 +1093,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   });
 
-  // Animación al bajar Y al subir
+  // Fade-up animation
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1188,6 +1110,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       observer.observe(el);
     });
   }, 100);
+
+  // ── GTM dataLayer events ──
+
+  // Evento: clic_cta (todos los botones CTA)
+  document.querySelectorAll('.cta-button').forEach(btn => {
+    btn.addEventListener('click', function() {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'clic_cta',
+        cta_text: this.innerText,
+        cta_location: this.id || 'cta_button'
+      });
+    });
+  });
+
+  // Evento: clic_whatsapp
+  document.querySelectorAll('#link-whatsapp, #social-whatsapp').forEach(el => {
+    el.addEventListener('click', function() {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'clic_whatsapp'
+      });
+    });
+  });
+
+  // Evento: envio_formulario (escucha el submit del form de HubSpot)
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmit') {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'envio_formulario',
+        form_id: '43e2f06b-01c5-48be-aee6-8f40bc6c2c1f'
+      });
+    }
+  });
 </script>
 </body>
 </html>
